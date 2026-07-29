@@ -1,0 +1,1353 @@
+/*==================================================
+  Birthday Website V4
+  style.css
+  Part 2A
+===================================================*/
+
+
+/*==========================
+  Reset
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    width:100%;
+    min-height:100vh;
+    min-height:100dvh;
+
+    overflow:hidden;
+
+    background:#000;
+
+    color:#fff;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+/*==========================
+  Loading Screen
+==========================*/
+
+#loadingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:opacity 1s ease;
+
+}
+
+.loaderContent{
+
+    text-align:center;
+
+}
+
+.loaderCircle{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    border:5px solid rgba(255,255,255,.15);
+
+    border-top:5px solid #ffffff;
+
+    margin:auto;
+
+    animation:spin 1.1s linear infinite;
+
+}
+
+.loaderContent h2{
+
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/*==========================
+  Transition Layer
+==========================*/
+
+#transitionLayer{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .9s ease;
+
+    z-index:9990;
+
+}
+
+#transitionLayer.show{
+
+    opacity:1;
+
+}
+
+
+/*==========================
+  Timeline
+==========================*/
+
+#timeline{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+
+/*==========================
+  Scene
+==========================*/
+
+.scene{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+.scene.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    z-index:2;
+
+}
+
+
+/*==========================
+  Background Layer
+==========================*/
+
+.background{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    animation:kenburns 28s ease-in-out infinite alternate;
+
+}
+
+
+/* Scene Backgrounds */
+
+#scene1 .background{
+
+    background-image:url("images/sunrise.jpg");
+
+}
+
+#scene2 .background{
+
+    background-image:url("images/morning.jpg");
+
+}
+
+#scene3 .background{
+
+    background-image:url("images/counter.jpg");
+
+}
+
+#scene4 .background{
+
+    background-image:url("images/reflection.jpg");
+
+}
+
+#scene5 .background{
+
+    background-image:url("images/skyline.jpg");
+
+}
+
+#scene6 .background{
+
+    background-image:url("images/mountain.jpg");
+
+}
+
+#scene7 .background{
+
+    background-image:url("images/letter.jpg");
+
+}
+
+#scene8 .background{
+
+    background-image:url("images/wishes.jpg");
+
+}
+
+#scene9 .background{
+
+    background-image:url("images/future.jpg");
+
+}
+
+#scene10 .background{
+
+    background-image:url("images/cake.jpg");
+
+}
+
+#scene11 .background{
+
+    background-image:url("images/fireworks.jpg");
+
+}
+
+#scene12 .background{
+
+    background-image:url("images/moon.jpg");
+
+}
+
+
+/*==========================
+  Ken Burns
+==========================*/
+
+@keyframes kenburns{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+
+/*==========================
+  Overlay
+==========================*/
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.35),
+
+        rgba(0,0,0,.55),
+
+        rgba(0,0,0,.75)
+
+    );
+
+}
+
+
+/*==========================
+  Content
+==========================*/
+
+.content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:min(900px,90%);
+
+    text-align:center;
+
+}
+
+
+/*==========================
+  Typography
+==========================*/
+
+h1,h2,h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#FFF7D8;
+
+    font-weight:600;
+
+    text-shadow:
+
+    0 5px 25px rgba(0,0,0,.4);
+
+}
+
+h1{
+
+    font-size:74px;
+
+    margin-bottom:18px;
+
+}
+
+h2{
+
+    font-size:56px;
+
+    margin-bottom:18px;
+
+}
+
+h3{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    font-weight:300;
+
+}
+
+
+/*==========================
+  Buttons
+==========================*/
+
+button{
+
+    margin-top:35px;
+
+    padding:15px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:18px;
+
+    background:
+
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    background:
+
+    rgba(255,255,255,.22);
+
+    box-shadow:
+
+    0 15px 30px rgba(255,255,255,.12);
+
+}
+
+/*==================================================
+  Birthday Website V4
+  style.css
+  Part 2B
+===================================================*/
+
+
+/*==========================
+  Journey Counter
+==========================*/
+
+.counterGrid{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+
+}
+
+.counterCard{
+
+    padding:25px 18px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.35s;
+
+}
+
+.counterCard:hover{
+
+    transform:translateY(-6px);
+
+    background:rgba(255,255,255,.18);
+
+}
+
+.counterCard span{
+
+    display:block;
+
+    font-size:42px;
+
+    font-weight:600;
+
+    color:#FFF7D8;
+
+    margin-bottom:10px;
+
+}
+
+.counterCard small{
+
+    display:block;
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+
+}
+
+.caption{
+
+    margin-top:45px;
+
+    font-style:italic;
+
+    opacity:.92;
+
+}
+
+
+/*==========================
+  Animated Text Sections
+==========================*/
+
+#reflectionContainer,
+#appreciationContainer,
+#futureContainer,
+#hopeContainer,
+#futureChapterContainer{
+
+    min-height:240px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.animatedText{
+
+    max-width:760px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:56px;
+
+    line-height:1.45;
+
+    color:#FFF7D8;
+
+    text-shadow:0 6px 24px rgba(0,0,0,.45);
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+.animatedText.show{
+
+    animation:textReveal 1.2s forwards;
+
+}
+
+@keyframes textReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==========================
+  Letter Layout
+==========================*/
+
+#scene7 .content{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding-right:5%;
+
+    text-align:left;
+
+}
+
+.letterContent{
+
+    width:38%;
+
+    max-width:560px;
+
+    margin-right:3%;
+
+    animation:letterAppear 1s ease;
+
+}
+
+.letterContent h2{
+
+    font-size:60px;
+
+    margin-bottom:30px;
+
+    text-align:left;
+
+}
+
+#letterContent{
+
+    max-height:62vh;
+
+    overflow-y:auto;
+
+    padding-right:12px;
+
+}
+
+#letterContent p{
+
+    font-size:23px;
+
+    line-height:2.1;
+
+    text-align:left;
+
+}
+
+#continueButton{
+
+    margin-top:35px;
+
+}
+/*==========================
+  Make Wish
+==========================*/
+
+#wishButton{
+
+    margin-top:40px;
+
+    font-size:20px;
+
+    padding:18px 55px;
+
+}
+
+
+/*==========================
+  Celebration Canvases
+==========================*/
+
+#fireworksCanvas,
+#confettiCanvas{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:3;
+
+}
+
+
+/*==========================
+  Ending Scene
+==========================*/
+
+#scene12 .content{
+
+    position: relative;
+
+    transform: translateY(130px);
+}
+
+#floatingStars{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+/*==========================
+  Secret Star
+==========================*/
+
+#secretStar{
+
+    position:absolute;
+
+    top:-80px;
+
+    right:10%;
+
+    font-size:20px;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:twinkle 2.2s infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        opacity:.2;
+
+        transform:scale(.9);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+        transform:scale(.9);
+
+    }
+
+}
+
+
+/*==========================
+  Popup
+==========================*/
+
+#starPopup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.82);
+
+    z-index:10000;
+
+}
+
+#starPopup.show{
+
+    display:flex;
+
+}
+
+.popupCard{
+
+    width: min(500px,92%);
+    padding: 50px;
+    border-radius: 30px;
+
+    /* New Background */
+    background: linear-gradient(
+        135deg,
+        #2d2d2d,
+        #1a1a1a
+    );
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+    text-align: center;
+
+    animation: popupIn .45s ease;
+}
+.popupCard h2{
+
+  font-size:68px;
+
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+}
+
+.popupCard p{
+
+  line-height:1.9;
+
+    font-size:22px;
+
+    color:#F4F4F4;
+
+}
+
+@keyframes popupIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px) scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+
+
+
+
+
+/*==================================================
+  Birthday Website V4
+  style.css
+  Part 2C (Final)
+===================================================*/
+
+
+/*==========================
+  Fade Utilities
+==========================*/
+
+.fadeIn{
+
+    animation:fadeIn 1.2s ease forwards;
+
+}
+
+.fadeOut{
+
+    animation:fadeOut .8s ease forwards;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+
+/*==========================
+  Floating Animation
+==========================*/
+
+.float{
+
+    animation:float 6s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+/*==========================
+  Glow Animation
+==========================*/
+
+.glow{
+
+    animation:glow 2.5s infinite alternate;
+
+}
+
+@keyframes glow{
+
+    from{
+
+        text-shadow:
+
+            0 0 10px rgba(255,255,255,.25);
+
+    }
+
+    to{
+
+        text-shadow:
+
+            0 0 30px rgba(255,235,180,.8);
+
+    }
+
+}
+
+
+/*==========================
+  Floating Stars
+==========================*/
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.35;
+
+    animation:starTwinkle 4s infinite ease-in-out;
+
+}
+
+@keyframes starTwinkle{
+
+    0%{
+
+        opacity:.15;
+
+        transform:scale(.8);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.3);
+
+    }
+
+    100%{
+
+        opacity:.15;
+
+        transform:scale(.8);
+
+    }
+
+}
+
+
+/*==========================
+  Celebration Title
+==========================*/
+
+#scene11 h1,
+#scene11 h2{
+
+    animation:celebrateText 2s ease infinite alternate;
+
+}
+
+@keyframes celebrateText{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+
+/*==========================
+  Music Helper
+==========================*/
+
+.musicFade{
+
+    transition:volume 2s ease;
+
+}
+
+
+/*==========================
+  Hidden Utility Classes
+==========================*/
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.invisible{
+
+    opacity:0;
+
+}
+
+.visible{
+
+    opacity:1;
+
+}
+
+
+/*==========================
+  Text Selection
+==========================*/
+
+::selection{
+
+    background:#f8e7b0;
+
+    color:#222;
+
+}
+
+
+/*==========================
+  Final Responsive Tweaks
+==========================*/
+
+/* Transition Scene */
+
+#transitionScene .background{
+
+    background:#000;
+
+    animation:none;
+
+}
+
+#transitionScene .overlay{
+
+    background:#000;
+
+}
+
+#wishReveal h2{
+
+    color:#ffffff;
+
+    margin:18px 0;
+
+}
+/* Letter Animation */
+
+@keyframes letterAppear{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+            PERFECT iPHONE / MOBILE VIEW
+==================================================*/
+
+@media screen and (max-width:768px){
+
+html,
+body{
+    height:100%;
+    overflow:hidden;
+}
+
+/* General */
+
+.content{
+    width:92%;
+    padding:20px;
+}
+
+h1{
+    font-size:38px;
+    line-height:1.2;
+}
+
+h2{
+    font-size:36px;
+    line-height:1.2;
+}
+
+h3{
+    font-size:28px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Buttons */
+
+button{
+
+    width:90%;
+    max-width:320px;
+
+    padding:14px 20px;
+
+    font-size:17px;
+
+}
+/* Counter */
+
+.counterGrid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+    margin-top:30px;
+
+}
+
+.counterCard{
+
+    padding:22px;
+
+}
+
+.counterCard span{
+
+    font-size:42px;
+
+}
+
+.counterCard small{
+
+    font-size:15px;
+
+}
+
+/* Animated Text */
+
+.animatedText{
+
+font-size:28px;
+
+    line-height:1.6;
+
+}
+
+/* Letter Scene */
+
+#scene7 .content{
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+}
+
+.letterContent{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin:0;
+
+}
+
+.letterContent h2{
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+#letterContent{
+
+    max-height:35vh;
+
+    overflow-y:auto;
+
+    padding-right:0;
+
+}
+
+#letterContent p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    text-align:left;
+
+}
+
+/* Ending Scene */
+
+#scene12 .content{
+
+    transform:none;
+
+}
+
+/* Popup */
+
+.popupCard{
+
+    width:92%;
+
+    padding:28px;
+
+}
+
+.popupCard h2{
+
+    font-size:42px;
+
+}
+
+.popupCard p{
+
+    font-size:18px;
+
+}
+
+}
+
