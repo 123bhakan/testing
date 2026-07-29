@@ -674,7 +674,13 @@ button:hover{
 
 #continueButton{
 
-    margin-top:35px;
+    width:90%;
+
+    max-width:300px;
+
+    margin-top:10px;
+
+    margin-bottom:20px;
 
 }
 /*==========================
@@ -1229,7 +1235,7 @@ button{
 
 .counterGrid{
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 
     gap:16px;
 
@@ -1269,13 +1275,13 @@ font-size:28px;
 
 #scene7 .content{
 
+    display:flex;
+
     justify-content:center;
 
-    align-items:flex-end;
+    align-items:center;
 
-    padding:40px 25px;
-
-    text-align:center;
+    padding:20px;
 
 }
 
@@ -1286,6 +1292,15 @@ font-size:28px;
     max-width:100%;
 
     margin:0;
+
+display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
 
 }
 
@@ -1301,7 +1316,11 @@ font-size:28px;
 
 #letterContent{
 
-    max-height:35vh;
+    max-height:30vh;
+
+width:100%;
+
+    margin-bottom:20px;
 
     overflow-y:auto;
 
